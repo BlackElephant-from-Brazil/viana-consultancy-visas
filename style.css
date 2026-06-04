@@ -328,7 +328,7 @@ ul { list-style: none; }
   gap: 1.25rem;
   padding: .75rem 1rem;
 }
-.stat-icon { width: 58px; height: 58px; object-fit: contain; }
+.stat-icon { width: 54px; height: 54px; flex-shrink: 0; color: var(--gold); }
 .stat-num {
   font-size: clamp(1.75rem, 2.8vw, 2.25rem);
   font-weight: 800;
@@ -468,7 +468,7 @@ ul { list-style: none; }
   gap: 1rem;
   margin-bottom: 1rem;
 }
-.why-icon { width: 48px; height: 48px; object-fit: contain; flex-shrink: 0; }
+.why-icon { width: 44px; height: 44px; flex-shrink: 0; color: var(--gold); }
 .why-title { font-size: 1rem; font-weight: 700; }
 .why-hr { border: none; border-top: 1px solid #eee; margin: 0 0 1rem; }
 .why-desc { font-size: .92rem; color: var(--muted); line-height: 1.65; }
@@ -532,7 +532,7 @@ ul { list-style: none; }
   text-align: center;
   gap: .85rem;
 }
-.process-icon { width: 54px; height: 54px; object-fit: contain; }
+.process-icon { width: 52px; height: 52px; color: var(--gold); }
 .process-title { font-size: .97rem; font-weight: 700; text-align: center; }
 .process-desc { font-size: .9rem; color: var(--muted); text-align: center; line-height: 1.65; }
 
@@ -587,7 +587,7 @@ ul { list-style: none; }
   box-shadow: 0 4px 16px rgba(201,162,39,.15);
 }
 .service-item-full { grid-column: 1 / -1; max-width: 50%; }
-.svc-icon { width: 34px; height: 34px; object-fit: contain; flex-shrink: 0; }
+.svc-icon { width: 28px; height: 28px; flex-shrink: 0; color: var(--gold); }
 
 /* ============================================================
    FINAL CTA
