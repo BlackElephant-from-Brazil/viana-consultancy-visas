@@ -185,8 +185,9 @@ setInterval(() => goTo(slideIdx >= maxSlide() ? 0 : slideIdx + 1), 6000);
 
 // ---- PHONE FIELD ----
 const phoneInput = document.getElementById('heroPhone');
+let heroIti = null;
 if (phoneInput && window.intlTelInput) {
-  window.intlTelInput(phoneInput, {
+  heroIti = window.intlTelInput(phoneInput, {
     initialCountry: 'pt',
     separateDialCode: true,
     utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js'
@@ -197,15 +198,65 @@ if (phoneInput && window.intlTelInput) {
 // ---- FORMS ----
 document.getElementById('heroForm')?.addEventListener('submit', function(e) {
   e.preventDefault();
-  // Integrate with your CRM or email provider here
-  alert('Thank you! We will be in touch with you shortly.');
-  this.reset();
+  const form      = this;
+  const firstName = form.querySelector('[name="firstName"]').value.trim();
+  const lastName  = form.querySelector('[name="lastName"]').value.trim();
+  const email     = form.querySelector('[name="email"]').value.trim();
+  const phone     = heroIti ? heroIti.getNumber() : (phoneInput?.value.trim() || '');
+  const btn       = form.querySelector('button[type="submit"]');
+
+  if (!firstName || !email) return;
+
+  btn.disabled    = true;
+  btn.textContent = 'Sending…';
+
+  fetch('https://black-elephant.app.n8n.cloud/webhook/hero-form', {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify({ name: `${firstName} ${lastName}`.trim(), email, phone })
+  })
+    .then(res => {
+      if (!res.ok) throw new Error();
+      form.reset();
+      btn.textContent = '✓ We\'ll be in touch soon!';
+      btn.style.background  = '#2d6a4f';
+      btn.style.borderColor = '#2d6a4f';
+    })
+    .catch(() => {
+      btn.disabled    = false;
+      btn.textContent = 'Book A Relocation Strategy Session';
+      alert('Something went wrong. Please try again.');
+    });
 });
 
 document.getElementById('downloadForm')?.addEventListener('submit', function(e) {
   e.preventDefault();
-  this.reset();
-  setTimeout(() => {
-    window.open('https://drive.google.com/file/d/1urP5D4YJqOmlHTXyY3W4Be21gZ4fFjBW/view?usp=sharing', '_blank');
-  }, 400);
+  const form      = this;
+  const firstName = form.querySelector('[name="firstName"]').value.trim();
+  const lastName  = form.querySelector('[name="lastName"]').value.trim();
+  const email     = form.querySelector('[name="email"]').value.trim();
+  const btn       = form.querySelector('button[type="submit"]');
+
+  if (!firstName || !email) return;
+
+  btn.disabled    = true;
+  btn.textContent = 'Sending…';
+
+  fetch('https://black-elephant.app.n8n.cloud/webhook/download-lead-magnetic', {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify({ name: `${firstName} ${lastName}`.trim(), email })
+  })
+    .then(res => {
+      if (!res.ok) throw new Error();
+      form.reset();
+      btn.textContent       = '✓ Check your inbox!';
+      btn.style.background  = '#2d6a4f';
+      btn.style.borderColor = '#2d6a4f';
+    })
+    .catch(() => {
+      btn.disabled    = false;
+      btn.textContent = 'Download';
+      alert('Something went wrong. Please try again.');
+    });
 });
