@@ -2,6 +2,10 @@
    VIANA CONSULTANCY — script.js
    ============================================================ */
 
+// Always open at top — disable browser scroll restoration
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+
 // ---- NAVBAR ----
 const navbar  = document.getElementById('navbar');
 const burger  = document.getElementById('burgerBtn');
