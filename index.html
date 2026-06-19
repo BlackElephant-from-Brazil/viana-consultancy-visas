@@ -62,13 +62,14 @@
   <!-- ===== ABOVE FOLD (hero + stats = 100vh) ===== -->
   <div class="above-fold">
 
+  <div class="hero-wrap">
   <!-- ===== HERO ===== -->
   <section id="home" class="hero-section">
     <div class="hero-bg-photo" aria-hidden="true">
       <img src="assets/images/viana-1.webp" alt="">
     </div>
     <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="container hero-content" id="contactform">
+    <div class="container hero-content">
       <div class="hero-left">
         <div class="rating-badge">
           <span class="rating-text">4.8 Excellent Google Reviews</span>
@@ -83,6 +84,12 @@
         <h1 class="hero-title">Move to Portugal<br>with Legal Precision</h1>
         <p class="hero-subtitle">Ideal for remote workers, retirees, and professionals with proven international income, guided by licensed immigration lawyers.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== HERO FORM ===== -->
+  <div class="hero-form-section" id="contactform">
+    <div class="container hero-form-container">
       <div class="hero-form-card">
         <form id="heroForm" novalidate>
           <input type="text" name="firstName" placeholder="First Name" required class="form-input" autocomplete="given-name">
@@ -98,7 +105,8 @@
         </form>
       </div>
     </div>
-  </section>
+  </div>
+  </div><!-- /.hero-wrap -->
 
   <!-- ===== STATS ===== -->
   <section class="stats-section">
