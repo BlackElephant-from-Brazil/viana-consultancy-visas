@@ -207,6 +207,7 @@ document.getElementById('heroForm')?.addEventListener('submit', function(e) {
   const lastName  = form.querySelector('[name="lastName"]').value.trim();
   const email     = form.querySelector('[name="email"]').value.trim();
   const phone     = heroIti ? heroIti.getNumber() : (phoneInput?.value.trim() || '');
+  const message   = form.querySelector('[name="message"]').value.trim();
   const btn       = form.querySelector('button[type="submit"]');
 
   if (!firstName || !email) return;
@@ -217,14 +218,12 @@ document.getElementById('heroForm')?.addEventListener('submit', function(e) {
   fetch('https://black-elephant.app.n8n.cloud/webhook/hero-form', {
     method:  'POST',
     headers: { 'Content-Type': 'application/json' },
-    body:    JSON.stringify({ name: `${firstName} ${lastName}`.trim(), email, phone })
+    body:    JSON.stringify({ name: `${firstName} ${lastName}`.trim(), email, phone, message })
   })
     .then(res => {
       if (!res.ok) throw new Error();
       form.reset();
-      btn.textContent = '✓ We\'ll be in touch soon!';
-      btn.style.background  = '#2d6a4f';
-      btn.style.borderColor = '#2d6a4f';
+      window.location.href = 'thank-you.html';
     })
     .catch(() => {
       btn.disabled    = false;
@@ -254,9 +253,7 @@ document.getElementById('downloadForm')?.addEventListener('submit', function(e) 
     .then(res => {
       if (!res.ok) throw new Error();
       form.reset();
-      btn.textContent       = '✓ Check your inbox!';
-      btn.style.background  = '#2d6a4f';
-      btn.style.borderColor = '#2d6a4f';
+      window.location.href = 'thank-you.html';
     })
     .catch(() => {
       btn.disabled    = false;

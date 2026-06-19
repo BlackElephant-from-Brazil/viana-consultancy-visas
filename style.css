@@ -102,6 +102,52 @@ ul { list-style: none; }
 
 .btn-icon { width: 18px; height: 18px; flex-shrink: 0; }
 
+/* ---- Thank You page ---- */
+.thankyou-section {
+  min-height: calc(100vh - var(--nav-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--nav-h) + 3rem) 1.5rem 4rem;
+  background: var(--light-bg);
+  text-align: center;
+}
+.thankyou-card {
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.thankyou-icon {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.thankyou-icon svg { width: 36px; height: 36px; }
+.thankyou-title {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: .5rem;
+}
+.thankyou-msg {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: .75rem;
+}
+.thankyou-sub {
+  font-size: .97rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
 /* ---- Form inputs ---- */
 .form-input {
   display: block;
@@ -118,6 +164,7 @@ ul { list-style: none; }
 }
 .form-input:focus { outline: none; border-color: var(--gold); }
 .form-input::placeholder { color: #aaa; }
+textarea.form-input { resize: vertical; min-height: 90px; }
 
 /* Phone wrapper - intl-tel-input */
 .phone-wrap { margin-bottom: .75rem; }
@@ -800,4 +847,8 @@ ul { list-style: none; }
   .hero-title { font-size: 1.85rem; }
   .process-grid { gap: 1rem; }
   .why-grid { gap: 1rem; }
+
+  .thankyou-section { padding: calc(var(--nav-h) + 2rem) 1.25rem 3rem; }
+  .thankyou-icon { width: 64px; height: 64px; }
+  .thankyou-icon svg { width: 30px; height: 30px; }
 }
