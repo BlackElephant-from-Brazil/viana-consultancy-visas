@@ -699,6 +699,11 @@ ul { list-style: none; }
 .footer-services { padding: 0; }
 .footer-services li { font-size: .88rem; color: var(--muted); margin-bottom: .45rem; }
 
+.footer-credit { padding: 0 1.5rem 2.5rem; text-align: left; font-size: .82rem; color: var(--muted); }
+.footer-credit-heart { font-size: .9em; }
+.footer-credit-link { color: var(--text); font-weight: 600; transition: color .2s; }
+.footer-credit-link:hover { color: var(--gold); }
+
 .footer-bottom { background: var(--gold); padding: 1rem 0; }
 .footer-bottom-inner {
   display: flex;
@@ -782,6 +787,7 @@ ul { list-style: none; }
   .footer-col { padding-top: 2rem; border-top: 1px solid rgba(0,0,0,.08); }
   .footer-col nav { display: grid; grid-template-columns: repeat(2, auto); justify-content: center; gap: .65rem 2rem; }
   .footer-services { display: grid; grid-template-columns: repeat(2, auto); justify-content: center; gap: .55rem 2rem; text-align: left; }
+  .footer-credit { text-align: center; }
   .footer-bottom-inner { text-align: center; }
 
   .download-card { padding: 2rem 1.5rem; }
