@@ -290,7 +290,7 @@ textarea.form-input { resize: vertical; min-height: 90px; }
 .hero-section {
   position: relative;
   flex: 1;
-  min-height: 400px;
+  min-height: 640px;
   background: #16110d;
   display: flex;
   align-items: center;
